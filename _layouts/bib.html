@@ -20,6 +20,9 @@
         {% assign venue = nil %}
     {% endcase %}
     {% assign venue = site.data.venues[venue] %}
+    {% if entry.badge %}
+      {% assign venue = entry.badge %}
+    {% endif %}
     {% if venue %}
       <abbr class="badge">{{venue}}</abbr>
     {% endif %}
