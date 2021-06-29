@@ -3,8 +3,28 @@
 
 <div class="row">
   <div class="col-sm-3">
+    {% if entry.url %}
+      <a href="{{entry.url}}" target="blank">
+    {% endif %}
     {% if entry.img %}
       <img class="img-fluid rounded z-depth-1" src="{{ entry.img | relative_url }}" alt=""/>
+    {% endif %}
+    {% case entry.type %}
+      {% when "article" %}
+        {% assign venue = entry.journal %}
+      {% when "inproceedings" %}
+        {% assign venue = entry.booktitle %}
+      {% when "misc" %}
+        {% assign venue = entry.publisher %}
+      {% else %}
+        {% assign venue = nil %}
+    {% endcase %}
+    {% assign venue = site.data.venues[venue] %}
+    {% if venue %}
+      <abbr class="badge">{{venue}}</abbr>
+    {% endif %}
+    {% if entry.url %}
+      </a>
     {% endif %}
   </div>
 
@@ -13,11 +33,7 @@
       {{reference}}
     {% else %}
       <div class="title">
-        {% if entry.url %}
-          <a href="{{entry.url}}" target="blank">{{entry.title}}</a>
-        {% else %}
-          {{entry.title}}
-        {% endif %}
+        {{entry.title}}
       </div>
       <div class="author">
         {% for author in entry.author_array %}
