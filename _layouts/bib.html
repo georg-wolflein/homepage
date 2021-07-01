@@ -38,7 +38,28 @@
     {% if entry.type == "thesis" %}
       <div class="author">
         <em>{{site.scholar.last_name}}, {{site.scholar.first_name}}</em>,
-        {{entry.year}}.
+        {% if entry.advisor %}
+          supervised by
+          {% assign advisor = entry.advisor | split: ", " | reverse %}
+          {% assign advisor_first = advisor[0] %}
+          {% assign advisor_last = advisor[1] %}
+          {% if site.data.coauthors[advisor_last] %}
+            {% for coauthor in site.data.coauthors[advisor_last] %}
+              {% if coauthor.firstname contains advisor_first %}
+                {% assign advisor_url = coauthor.url %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if advisor_url %}
+            <a href="{{advisor_url}}" target="_blank">{{advisor_last}}, {{advisor_first}}</a>,
+          {% else %}
+            {{author.last}}, {{author.first}},
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="periodical">
+        <em>{{entry.institution}}</em>, {{entry.year}}.
       </div>
     {% else %}
       <div class="author">
