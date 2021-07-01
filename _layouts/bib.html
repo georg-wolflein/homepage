@@ -37,9 +37,9 @@
     </div>
     {% if entry.type == "thesis" %}
       <div class="author">
-        <em>{{site.scholar.last_name}}, {{site.scholar.first_name}}</em>,
+        <em>{{site.scholar.last_name}}, {{site.scholar.first_name}}</em>
         {% if entry.advisor %}
-          supervised by
+          (supervised by
           {% assign advisor = entry.advisor | split: ", " | reverse %}
           {% assign advisor_first = advisor[0] %}
           {% assign advisor_last = advisor[1] %}
@@ -52,9 +52,9 @@
             {% endfor %}
           {% endif %}
           {% if advisor_url %}
-            <a href="{{advisor_url}}" target="_blank">{{advisor_last}}, {{advisor_first}}</a>,
+            <a href="{{advisor_url}}" target="_blank">{{advisor_last}}, {{advisor_first}}</a>)
           {% else %}
-            {{author.last}}, {{author.first}},
+            {{author.last}}, {{author.first}})
           {% endif %}
         {% endif %}
       </div>
