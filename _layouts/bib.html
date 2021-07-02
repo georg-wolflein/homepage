@@ -15,7 +15,7 @@
       {% when "inproceedings" %}
         {% assign venue = entry.booktitle %}
       {% when "misc" %}
-        {% assign venue = entry.publisher %}
+        {% assign venue = entry.organization %}
       {% else %}
         {% assign venue = nil %}
     {% endcase %}
@@ -118,7 +118,7 @@
       {% elsif entry.type == "inproceedings" %}
         <em>In {{entry.booktitle}}</em>,
       {% elsif entry.type == "misc" %}
-        <em>{{entry.publisher}}</em>,
+        <em>{{entry.organization}}</em>,
       {% endif %}
       {% if entry.year %}
         {{entry.year}}.
