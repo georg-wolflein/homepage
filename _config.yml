@@ -85,10 +85,10 @@ collections:
   news:
     defaults:
       layout: post
-    output: true
+    output: false # prevent generation of separate page for each news item
     permalink: /news/:path/
   projects:
-    output: true
+    output: false
     permalink: /projects/:path/
 
 news_limit: 5
@@ -130,6 +130,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll/scholar
   - jekyll-twitter-plugin
+  - jekyll-sitemap
   - jemoji
 
 # Extras
@@ -178,6 +179,16 @@ enable_project_categories:
   true # enables categorization of projects into
   # multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
+
+# -----------------------------------------------------------------------------
+# Defaults
+# -----------------------------------------------------------------------------
+
+defaults:
+  - scope:
+      path: "assets/**/*.pdf"
+    values:
+      sitemap: false
 
 # -----------------------------------------------------------------------------
 # Library versions
