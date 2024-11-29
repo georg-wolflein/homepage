@@ -37,12 +37,12 @@
 "Ligero":
   - firstname: ["Marta", "M."]
     url: https://scholar.google.com/citations?user=0LLfhWYAAAAJ
-# "Lenz":
-#   - firstname: ["Tim", "T."]
-#     url:
-# "van Treek":
-# - firstname: ["Marko", "M."]
-#   url:
+"Lenz":
+  - firstname: ["Tim", "T."]
+    url: https://scholar.google.com/citations?user=4S75gC0AAAAJ
+"van Treek":
+  - firstname: ["Marko", "M."]
+    url: https://github.com/LocalToasty
 "Khader":
   - firstname: ["Firas", "F."]
     url: https://scholar.google.com/citations?user=to8g5LsAAAAJ
@@ -61,3 +61,6 @@
 "Gazut":
   - firstname: ["Stéphane", "S."]
     url: https://dblp.org/pid/184/8678.html
+"Wiest":
+  - firstname: ["Isabella", "Isabella C."]
+    url: https://scholar.google.com/citations?user=OtcWA9IAAAAJ
